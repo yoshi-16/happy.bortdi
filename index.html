@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+ 
+  <title>Login</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #d8b4fe, #e9d5ff); /* light purple gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Login container */
+.login-box {
+  background-color: rgba(255, 255, 255, 0.85); /* soft white overlay */
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  width: 320px;
+  text-align: center;
+}
+
+/* Title inside box */
+.login-box h1 {
+  margin: 0 0 20px 0;
+  color: #6a0dad; /* medium purple */
+  font-size: 26px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 14px;
+  color: #4b0082; /* indigo-like purple */
+  text-align: left;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c084fc; /* light purple border */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: #f3e8ff; /* pale lavender */
+  color: #4b0082;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border: 2px solid #a855f7; /* brighter purple on focus */
+  background-color: #fff;
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #a855f7; /* lighter purple */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #9333ea; /* slightly darker purple */
+}
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h1>Login</h1>
+
+    <form id="loginForm">
+      <label for="username">Username:</label>
+      <input id="username" name="username" type="text" required>
+
+      <label for="password">Password:</label>
+      <input id="password" name="password" type="password" required>
+
+      <button type="submit">Log in</button>
+    </form>
+  </div>
+
+  <script>
+    const FIXED_USERNAME = "jabee";
+    const FIXED_PASSWORD = "0923";
+
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === FIXED_USERNAME && password === FIXED_PASSWORD) {
+        window.location.href = 'landing.html';
+      } else {
+        alert('Invalid username or password.');
+        document.getElementById('password').value = '';
+      }
+    });
+  </script>
+</body>
+</html>

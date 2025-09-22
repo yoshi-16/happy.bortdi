@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Happy Birthday!</title>
+  <style>
+    body {
+  background-color: #e6ccff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; /* only horizontal scroll hidden */
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+#balloon-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* lets clicks go through balloons */
+  z-index: 0; /* keep balloons behind */
+}
+
+audio {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.7); /* scale down to 70% */
+  transform-origin: center bottom; /* scale from center bottom */
+  z-index: 1000;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  width: 300px; /* keep width to maintain control layout */
+}
+
+h1 {
+  color: #6a0dad; /* Deep purple for the main heading */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a slight shadow for emphasis */
+}
+
+p {
+  color: #9932cc; /* Lighter purple for the paragraph */
+  font-size: 20px;
+}
+
+.slides {
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+audio {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%) scale(0.7);
+      transform-origin: center bottom;
+      z-index: 1000;
+      border-radius: 10px;
+      background-color: rgba(255,255,255,0.9);
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      width: 300px;
+    }
+
+.center img {
+  max-width: 100%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.center img:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Background and text */
+body {
+  background-color: #e6ccff;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Prevent scrollbars */
+  margin: 0;
+  padding: 0;
+}
+
+/* Balloon style */
+.balloon {
+  position: absolute;
+  top: -100px;
+  width: 60px;
+  height: 80px;
+  background-color: #ff69b4;
+  border-radius: 50% 50% 50% 50%;
+  animation: fall 10s linear forwards;
+}
+
+/* String */
+.balloon::after {
+  content: "";
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100px;
+  background-color: #444;
+}
+
+/* Fall animation */
+@keyframes fall {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh);
+    opacity: 0.3;
+  }
+}
+
+/* Color variations */
+.balloon:nth-child(3n) {
+  background-color: #3cb371; /* green */
+}
+.balloon:nth-child(4n) {
+  background-color: #ffa500; /* orange */
+}
+
+
+  </style>
+</head>
+<body style="text-align: center; background-color: #e6ccff; font-family: Arial, sans-serif;">
+
+  <h1 style="color: #6a0dad;">🎉 Happy Birthday, Jabee! 🎂</h1>
+  <p style="color: #9932cc; font-size: 20px;">Wishing you joy, love, and happiness</p>
+
+<div id="balloon-container"></div>
+
+  <script src="0923.js">
+  </script>
+  <div class="center">
+    <center>
+    <img class="slides" src="hello.jpg" width="600" height="400">
+    <img class="slides" src="tulips.jpg" width="300" height="400">
+    <img class="slides" src="1.jpeg" width="600" height="400">
+    <img class="slides" src="2.jpeg" width="600" height="400" style="display:none">
+    <img class="slides" src="3.jpeg" width="600" height="400" style="display:none">
+    <img class="slides" src="4.jpeg" width="600" height="400" style="display:none">
+    <img class="slides" src="5.jpeg" width="300" height="400" style="display:none">
+    <img class="slides" src="6.jpeg" width="300" height="400" style="display:none">
+    <img class="slides" src="7.jpeg" width="600" height="300" style="display:none">
+    <img class="slides" src="8.jpeg" width="600" height="400" style="display:none">
+    <img class="slides" src="9.jpeg" width="300" height="400" style="display:none">
+    <img class="slides" src="10.jpeg" width="300" height="400" style="display:none">
+    <img class="slides" src="11.jpeg" width="300" height="400" style="display:none">
+    <img class="slides" src="12.jpeg" width="600" height="400" style="display:none">
+    <img class="slides" src="13.jpeg" width="250" height="400" style="display:none">
+    <img class="slides" src="14.jpeg" width="300" height="400" style="display:none">
+    <img class="slides" src="15.jpeg" width="300" height="400" style="display:none">
+    <img class="slides" src="16.jpeg" width="300" height="400" style="display:none">
+    </center>
+  </div>
+  
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let slides = document.getElementsByClassName("slides");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // change photo every 3 seconds
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+  const balloonContainer = document.getElementById('balloon-container');
+
+  // Shades of purple only
+  const purpleShades = [
+    '#800080', // purple
+    '#9370DB', // medium purple
+    '#8A2BE2', // blue violet
+    '#6A0DAD', // dark purple
+    '#DA70D6', // orchid
+    '#BA55D3'  // medium orchid
+  ];
+
+  function createBalloon(side) {
+    const balloon = document.createElement('div');
+    balloon.classList.add('balloon');
+
+    // Pick a random purple shade
+    const color = purpleShades[Math.floor(Math.random() * purpleShades.length)];
+    balloon.style.backgroundColor = color;
+
+    // Define position ranges for outer and inner edge zones
+    let leftRange, rightRange;
+
+    if (side === 'left') {
+      if (Math.random() < 0.5) {
+        leftRange = [0, 5];    // outer left edge
+      } else {
+        leftRange = [10, 25];  // inner left zone
+      }
+      balloon.style.left = `${leftRange[0] + Math.random() * (leftRange[1] - leftRange[0])}vw`;
+    } else {
+      if (Math.random() < 0.5) {
+        rightRange = [95, 100];  // outer right edge
+      } else {
+        rightRange = [75, 90];   // inner right zone
+      }
+      balloon.style.left = `${rightRange[0] + Math.random() * (rightRange[1] - rightRange[0])}vw`;
+    }
+
+    // Random fall speed
+    balloon.style.animationDuration = `${6 + Math.random() * 4}s`;
+
+    balloonContainer.appendChild(balloon);
+
+    // Remove balloon after it falls
+    setTimeout(() => balloon.remove(), 12000);
+  }
+
+  // Create balloons on left every 800ms
+  setInterval(() => {
+    createBalloon('left');
+  }, 800);
+
+  // Create balloons on right every 1000ms, staggered start
+  setTimeout(() => {
+    setInterval(() => {
+      createBalloon('right');
+    }, 1000);
+  }, 400);
+});
+
+  </script>
+<audio autoplay controls muted loop>
+    <source src="eyy.mp3" type="audio/mpeg" />
+  </audio>
+</body>
+</html>
